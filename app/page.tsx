@@ -1,5 +1,5 @@
 import Image from "next/image";
 
 export default function Home() {
-  return <div>hello</div>;
+  return <div className="font-sans">hello</div>;
 }
