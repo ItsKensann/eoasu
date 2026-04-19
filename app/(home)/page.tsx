@@ -1,5 +1,10 @@
-import Image from "next/image";
+import NavBar from "@/components/layout/NavBar";
 
 export default function Home() {
-  return <div className="font-sans">home page</div>;
+  return (
+    <>
+      <NavBar />
+      <div className="font-sans">home page</div>
+    </>
+  );
 }
