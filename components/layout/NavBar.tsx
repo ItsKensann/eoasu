@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const navItems = [
   { name: "Home", path: "/" },
@@ -21,16 +22,25 @@ export default function NavBar() {
           <div>
             <Image
               src={"/images/eaosu_logo.png"}
-              width={80}
+              width={70}
               height={80}
               alt="Logo of Esports at OSU"
             />
           </div>
 
           {/* Links */}
-          <div>
+          <div className="hidden md:flex items-center gap-8 font-headline md:text-sm lg:text-md">
             {navItems.map((item) => (
-              <Link key={item.name} href={item.path}>
+              <Link
+                key={item.name}
+                href={item.path}
+                className={cn(
+                  "transition-all duration-300 hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,102,0,0.8)]",
+                  pathname === item.path
+                    ? "text-primary-container border-b-2 border-primary-container"
+                    : "text-white/80",
+                )}
+              >
                 {item.name}
               </Link>
             ))}
