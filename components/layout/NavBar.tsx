@@ -89,7 +89,12 @@ export default function NavBar() {
           {socialLinks.map((item) => {
             const Icon = item.icon;
             return (
-              <Link key={item.name} href={item.path}>
+              <Link
+                key={item.name}
+                href={item.path}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Icon
                   className="fill-white hover:fill-primary-container transition-colors"
                   width={25}
