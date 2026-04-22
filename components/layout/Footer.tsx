@@ -79,12 +79,13 @@ export default function Footer() {
               placeholder="Enter your email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="flex-grow bg-background border border-white/20 rounded-sm px-4 py-2 font-headline text-xs tracking-widest text-white placeholder:text-white/20 focus:outline-none focus:border-primary-container transition-colors"
             />
             <button
               type="submit"
-              className="bg-primary-container text-white border-white "
+              className="bg-primary-container text-white p-3 rounded-sm hover:bg-primary-container/80 transition-colors"
             >
-              <Send />
+              <Send className="w-5 h-5" />
             </button>
           </form>
         </div>
