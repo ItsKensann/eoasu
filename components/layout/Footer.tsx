@@ -65,7 +65,29 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-        <div>tesg</div>
+        <div className="flex flex-col gap-2 text-left">
+          <h3 className="font-headline font-black text-2xl uppercase tracking-tighter text-primary-container italic">
+            Newsletter
+          </h3>
+          <p className="font-sans text-xs tracking-widest text-white/90">
+            Subscribe to stay up to date with all things Esports at OSU!
+          </p>
+          <form onSubmit={handleSubmit} className="flex w-full mad-w-md gap-2">
+            <input
+              type="email"
+              required
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button
+              type="submit"
+              className="bg-primary-container text-white border-white "
+            >
+              <Send />
+            </button>
+          </form>
+        </div>
       </div>
     </footer>
   );
