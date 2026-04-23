@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
+import IntroAnimation from "@/components/animation/IntroAnimation";
 import "../styles/index.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -26,6 +27,7 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-background selection:bg-primary-container selection:text-white">
+        <IntroAnimation />
         <NavBar />
         <main className="flex-grow">{children}</main>
         <Footer />
