@@ -32,15 +32,17 @@ const socialLinks = [
 export default function Footer() {
   const [email, setEmail] = useState("");
 
-  const handleSubmit = () => {
-    // pass
+  const handleSubmit = (e: React.SubmitEvent) => {
+    e.preventDefault();
+    console.log(`Welcome ${email}`);
+    setEmail("");
   };
 
   return (
     <footer className="bg-background border-t border-white/5 w-full py-12 md:px-12">
       <div className="max-w-screen-2xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex flex-col gap-4">
-          <div>
+          <div className="flex justify-center">
             <Image
               src={"/images/eaosu_logo.png"}
               width={65}
