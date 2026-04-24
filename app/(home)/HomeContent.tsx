@@ -61,8 +61,8 @@ export default function HomeContent() {
             <div className="h-1 w-24 bg-primary-container"></div>
           </div>
           <div className="flex gap-4">
-            <button className="w-12 h-12 bg-white">
-              <ArrowLeft />
+            <button className="w-12 h-12 flex items-center justify-center border border-outline-variant hover:border-primary-container hover:text-primary-container transition-all">
+              <ArrowLeft className="w-6 h-6" />
             </button>
             <button className="w-12 h-12 bg-white">
               <ArrowRight />
