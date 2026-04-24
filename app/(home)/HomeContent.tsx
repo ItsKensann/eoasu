@@ -7,7 +7,6 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 const images = [
-  { id: "image_1", src: "/images/hero_section/eaosu_slide1.gif" },
   { id: "image_2", src: "/images/hero_section/eaosu_slide2.jpg" },
   { id: "image_3", src: "/images/hero_section/eaosu_slide3.jpg" },
   { id: "image_4", src: "/images/hero_section/eaosu_slide4.jpg" },
@@ -28,18 +27,26 @@ export default function HomeContent() {
   }, []);
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full p-8">
       {/* Hero section */}
       <section className="relative h-[65vh] min-h-[400px] w-full overflow-hidden flex items-end mt-20">
-        <div className="absolute inset-0 z-0 m-8">
-          <Image
-            src={images[currentIndex].src}
-            alt="Esports banner"
-            fill
-            priority
-            className="object-cover opacity-40"
-          />
-        </div>
+        {images.map((item, index) => (
+          <div
+            key={item.id}
+            className={cn(
+              "absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out",
+              index === currentIndex ? "opacity-100 z-100" : "opacity-0 z-0",
+            )}
+          >
+            <Image
+              src={item.src}
+              alt="Esports banner"
+              fill
+              priority={index === 0}
+              className="object-cover object-top"
+            />
+          </div>
+        ))}
       </section>
     </div>
   );
