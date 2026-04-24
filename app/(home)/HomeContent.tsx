@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { ArrowRight, ArrowLeft, Verified } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { PassThrough } from "stream";
 
 const images = [
   { id: "image_2", src: "/images/hero_section/eaosu_slide2.jpg" },
@@ -60,11 +61,11 @@ export default function HomeContent() {
             </h1>
             <div className="h-1 w-24 bg-primary-container"></div>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 text-white">
             <button className="w-12 h-12 flex items-center justify-center border border-outline-variant hover:border-primary-container hover:text-primary-container transition-all">
-              <ArrowLeft className="w-6 h-6" />
+              <ArrowLeft />
             </button>
-            <button className="w-12 h-12 bg-white">
+            <button className="w-12 h-12 flex items-center justify-center border border-primary-container bg-primary-container text-on-primary-container">
               <ArrowRight />
             </button>
           </div>
