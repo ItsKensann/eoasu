@@ -13,6 +13,8 @@ const images = [
   { id: "image_5", src: "/images/hero_section/eaosu_slide5.jpg" },
 ];
 
+const events = [];
+
 export default function HomeContent() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -35,7 +37,7 @@ export default function HomeContent() {
             key={item.id}
             className={cn(
               "absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out",
-              index === currentIndex ? "opacity-100 z-100" : "opacity-0 z-0",
+              index === currentIndex ? "opacity-100 z-20" : "opacity-0 z-0",
             )}
           >
             <Image
@@ -47,6 +49,26 @@ export default function HomeContent() {
             />
           </div>
         ))}
+      </section>
+
+      {/* Upcoming events section */}
+      <section className="py-24 px-6 md:px-18 max-w-7xl w-full mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div>
+            <h1 className="font-headline text-5xl font-black tracking-tighter text-white">
+              Upcoming Events
+            </h1>
+            <div className="h-1 w-24 bg-primary-container"></div>
+          </div>
+          <div className="flex gap-4">
+            <button className="w-12 h-12 bg-white">
+              <ArrowLeft />
+            </button>
+            <button className="w-12 h-12 bg-white">
+              <ArrowRight />
+            </button>
+          </div>
+        </div>
       </section>
     </div>
   );
