@@ -85,6 +85,7 @@ export default function HomeContent() {
 
       {/* Upcoming events section */}
       <section className="py-24 px-6 md:px-12 max-w-7xl w-full mx-auto">
+        {/* Title and nav buttons */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
             <h1 className="font-headline text-5xl font-black tracking-tighter text-white mb-3">
@@ -100,6 +101,29 @@ export default function HomeContent() {
               <ArrowRight />
             </button>
           </div>
+        </div>
+
+        {/* Events content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {events.map((item, index) => (
+            <motion.div key={item.id} className="group border">
+              <div className="h-48 overflow-hidden relative">
+                <Image
+                  src={item.image}
+                  fill
+                  sizes="100%"
+                  priority
+                  alt={item.title}
+                  className="object-cover grayscale group-hover:grayscale-0"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+              <div className="p-8">
+                <p>Date</p>
+                <p>Name</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
     </div>
