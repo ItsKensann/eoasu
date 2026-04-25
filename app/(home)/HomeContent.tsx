@@ -29,7 +29,7 @@ const events = [
     id: "02",
     title: "EaOSU Information Session",
     date: "APR 25",
-    tag: "In-Person",
+    tag: "IN-PERSON",
     description:
       "Come join us to learn more about how our club works, how to participate, how you can join, and more!",
     image: "/images/events/02_event.webp",
@@ -39,7 +39,7 @@ const events = [
     id: "03",
     title: "Deadlock Inhouse",
     date: "MAY 27",
-    tag: "In-Person",
+    tag: "CASUAL",
     description:
       "Come and join our DL team and have an evening out in the Cursed Apple. DM [DLK] Autumn (or ask in #deadlock-chat) for an invite to the playtest if you don't already have access.",
     image: "/images/events/03_event.png",
@@ -122,18 +122,30 @@ export default function HomeContent() {
                   sizes="100%"
                   priority
                   alt={item.title}
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700 ease-in-out"
+                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700 ease-in-out opacity-80"
                   referrerPolicy="no-referrer"
                 />
-                <div className="text-black">{item.tag}</div>
+                <div
+                  className={cn(
+                    "absolute top-4 left-4 px-3 py-1 text-white font-headline text-xs",
+                    item.color === "primary-container"
+                      ? "bg-primary-container"
+                      : "bg-secondary-container",
+                  )}
+                >
+                  {item.tag}
+                </div>
               </div>
               <div className="p-8">
                 <span className="flex justify-between items-start text-primary-container font-headline tracking-widest font-bold text-xs mb-4">
                   {item.date}
                 </span>
-                <h1>{item.title}</h1>
-                <p>{item.description}</p>
-                <button>Register Now</button>
+                <h1 className="text-xl text-white uppercase font-bold font-headline tracking-wide mb-4 group-hover:text-primary-container transition-colors ">
+                  {item.title}
+                </h1>
+                <p className="text-on-surface-variant text-md leading-relaxed mb-8">
+                  {item.description}
+                </p>
               </div>
             </motion.div>
           ))}
