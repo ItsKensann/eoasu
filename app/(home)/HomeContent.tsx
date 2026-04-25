@@ -38,7 +38,7 @@ const events = [
   {
     id: "03",
     title: "Deadlock Inhouse",
-    date: "May 27",
+    date: "MAY 27",
     tag: "In-Person",
     description:
       "Come and join our DL team and have an evening out in the Cursed Apple. DM [DLK] Autumn (or ask in #deadlock-chat) for an invite to the playtest if you don't already have access.",
@@ -63,7 +63,7 @@ export default function HomeContent() {
   return (
     <div className="flex flex-col w-full p-8">
       {/* Hero section */}
-      <section className="relative h-[65vh] min-h-[400px] w-full overflow-hidden flex items-end mt-20">
+      <section className="relative h-[80vh] min-h-[400px] w-full overflow-hidden flex items-end mt-20">
         {images.map((item, index) => (
           <div
             key={item.id}
@@ -106,7 +106,15 @@ export default function HomeContent() {
         {/* Events content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {events.map((item, index) => (
-            <motion.div key={item.id} className="group border">
+            <motion.div
+              key={item.id}
+              className="group border-l-2  border-primary-container"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              whileHover={{ translateY: -8, transition: { duration: 0.7 } }}
+            >
               <div className="h-48 overflow-hidden relative">
                 <Image
                   src={item.image}
@@ -114,13 +122,18 @@ export default function HomeContent() {
                   sizes="100%"
                   priority
                   alt={item.title}
-                  className="object-cover grayscale group-hover:grayscale-0"
+                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700 ease-in-out"
                   referrerPolicy="no-referrer"
                 />
+                <div className="text-black">{item.tag}</div>
               </div>
               <div className="p-8">
-                <p>Date</p>
-                <p>Name</p>
+                <span className="flex justify-between items-start text-primary-container font-headline tracking-widest font-bold text-xs mb-4">
+                  {item.date}
+                </span>
+                <h1>{item.title}</h1>
+                <p>{item.description}</p>
+                <button>Register Now</button>
               </div>
             </motion.div>
           ))}

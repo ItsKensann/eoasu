@@ -27,7 +27,7 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}
     >
       <body className="min-h-screen flex flex-col bg-background selection:bg-primary-container selection:text-white">
-        <IntroAnimation />
+        {/* <IntroAnimation /> */}
         <NavBar />
         <main className="flex-grow">{children}</main>
         <Footer />
